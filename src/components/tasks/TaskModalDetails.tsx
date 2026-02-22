@@ -29,7 +29,7 @@ export default function TaskModalDetails() {
         return <Navigate to={`/projects/${projectId}`} />
     }
   
-    return (
+   if(data) return (
         <>
             <Transition appear show={show} as={Fragment}>
                 <Dialog as="div" className="relative z-10" onClose={() => navigate(location.pathname, {replace: true})}>
@@ -59,12 +59,13 @@ export default function TaskModalDetails() {
                                 <DialogPanel className="w-full max-w-4xl transform overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl transition-all p-16">
                                     <p className='text-sm text-slate-400'>Agregada el: </p>
                                     <p className='text-sm text-slate-400'>Última actualización: </p>
+
                                     <DialogTitle
                                         as="h3"
                                         className="font-black text-4xl text-slate-600 my-5"
-                                    >Titulo aquí
-                                    </DialogTitle>
-                                    <p className='text-lg text-slate-500 mb-2'>Descripción:</p>
+                                        
+                                    >{data.name} </DialogTitle>
+                                    <p className='text-lg text-slate-500 mb-2'>Descripción: {data.description}</p>
                                     <div className='my-5 space-y-3'>
                                         <label className='font-bold'>Estado Actual:</label>
                                     </div>
